@@ -28,14 +28,13 @@ else:
 
 
 #Question 2
-    #Sum of N terms of an AP having common difference 1.5
+    #Sum of N terms of an AP having common difference 1.5 
 a = input("Enter the initial value of AP: ")
 a = int(a)
 apt = input("Entere the term number of AP: ")
 apt = int(apt)
-apt = int(apt)
 apsum = 0
-if (apt- math.floor(apt))==0 and apt>0:
+if (apt- math.floor(apt))==0 and apt>0:         #Check for negetive numbers and fractions
     for i in range(apt):
         apsum = apsum + a
         a = a+1.5
@@ -49,7 +48,7 @@ g = int(g)
 gpt = input("Entere the term number of GP: ")
 gpt = int(gpt)
 gpsum = 0
-if (gpt - math.floor(gpt))==0 and gpt>0:
+if (gpt - math.floor(gpt))==0 and gpt>0:             #Check for negetive numbers and fractions
     for i in range(gpt):
         gpsum = gpsum + g
         g = g*0.5
@@ -63,7 +62,7 @@ h = float(h)
 hpt = input("Entere the term number of HP: ")
 hpt = int(hpt)
 hpsum = 0
-if (hpt - math.floor(g=hpt))==0 and hpt>0 and h!=0: 
+if (hpt - math.floor(hpt))==0 and hpt>0 and h!=0: 
     for i in range(hpt):
         hpsum = hpsum + h
         h = 1/h
@@ -74,13 +73,14 @@ elif h==0:
     print("Initisl number value cannot be zero")
 else:
     print("Term number is unacceptable")
-
+  
+#Question 3
 #N factorial
 n = input("Enter the number whose factorial you wish to find: ")
 n = int(n)
 def factorial(n):
     fact = 1
-    if (n-math.floor(n)) ==0 and n>0:
+    if (n-math.floor(n)) ==0 and n>0:            #Check for negetive numbers and fractions
         for i in range(1,n+1):
             fact = fact*i
     return fact
@@ -96,7 +96,7 @@ x = float(x)
 sinx = 0
 for i in range(40):
           sinx = sinx + pow(-1,i)*pow(x,2*i+1)/factorial(2*i+1)
-if sinx-sin(x)<=0.00001:
+if sinx-math.sin(x)<=0.00001:
     print(sinx)
 else:
     print("x ain't small enough")
