@@ -1,4 +1,5 @@
 import math
+#to augment matrices
 def augment(a,b):
     k = []
     for i in range(len(a)):
@@ -13,7 +14,7 @@ def sortout(a):
                     a[j],a[i]=a[i],a[j]
                 
     return a
-
+#to swap rows so that pivot element is not 0
 def swapnum(c):
     a = c
     d = 0
@@ -24,7 +25,7 @@ def swapnum(c):
                     d = d+1
                 
     return pow(-1,d)
-           
+ #to add two rows          
 def addrow(a,b):
     c = []
     if len(a)==len(b):
@@ -33,13 +34,13 @@ def addrow(a,b):
         return c
     else:
         return "row dimensions incompatible"
-    
+  #to multiply a row with a constant
 def multiplyrow(a,c):
     b = []
     for i in range(len(a)):
         b.append(float(a[i])*c)
     return b
-
+#to find the determinant 
 def determinant(a):
     d=sortout(a)
     s=swapnum(a)
@@ -53,7 +54,7 @@ def determinant(a):
         det = det*d[i][i]
     det = det*s
     return det
-            
+  #for gaussjordan elimination 
 def gaussjordan(a,b):
     if len(a)==len(b):
         d = augment(a,b)
@@ -68,6 +69,7 @@ def gaussjordan(a,b):
                 d[j] = multiplyrow(d[j],1/d[i][i])
                     
         return d
+    #to generate identity matrix of same dimension
 def identity(n):
     u = []
     for i in range(n):
@@ -78,6 +80,7 @@ def identity(n):
             else:
                 u[i].append(0)
     return u
+#so that idenitity matrix goes through the same row swaps as the matrix
 def augiden(c):
     u = identity(len(c))
     a = c
@@ -88,7 +91,7 @@ def augiden(c):
                     a[j],a[i]=a[i],a[j]
                     u[j],u[i]=u[i],u[j]
     return u
-            
+ #to find inverse of matrix
 def inverse(a):
     u = augiden(a)
     d = sortout(a)
@@ -106,7 +109,7 @@ def inverse(a):
                
     return u
     
-
+#to present solution of gauss jordan
 def solution(a,b):
     u = gaussjordan(a,b)
     sol = []
