@@ -56,15 +56,15 @@ def cholesky(a):
     l = []
     if len(a) == len(a[1]):
         for i in range(len(a)):
-            l.append([])
+            l.append([0 for i in range(len(a))])
             for j in range(i+1):
                 d = 0
                 for k in range(j):
                     d = l[i][k]*l[j][k]
                 if i == j:
-                    l[i].append(round(math.sqrt(a[i][i]-d),4))
+                    l[i][j]=round(math.sqrt(a[i][i]-d),4)
                 else:
-                    l[i].append(round((a[i][j]-d)/l[j][j],4))
+                    l[i][j]=round((a[i][j]-d)/l[j][j],4)
         return l
             
 
