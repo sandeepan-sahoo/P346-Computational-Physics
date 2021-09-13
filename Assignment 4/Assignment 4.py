@@ -19,6 +19,8 @@ g=cholesky(d)
 e = [2.2,2.85,2.79,2.87]
 print("the solution is")
 print(backforward(g,g,e))
+
+#Q1
 v = [[2,0,2,4],[0,1,-2,0],[1,2,-3,0],[2,1,3,-2]]
 v = partial_pivot(a,4)
 l,u = doolittle(v)
