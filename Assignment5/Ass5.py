@@ -34,7 +34,7 @@ def bisection(f,a,b):
 #function for table of bisection method
 def bisectable(f,a,b):
     print("Table by bisection method")
-    print("i" + "   " + "f(x)")
+    print("i" + "   " + "x")
     a,b = bracket(f,a,b)
     if f(a)*f(b)<0:
         c = (a+b)/2
@@ -51,7 +51,7 @@ def bisectable(f,a,b):
 #function for table of regula falsi method
 def regulatable(f,a,b):
     print("Table by Regula Falsi method")
-    print("i" + "   " + "f(x)")
+    print("i" + "   " + "x")
     a,b = bracket(f,a,b)
     if f(a)*f(b)<0:
         c = float((a*f(b)-b*f(a))/(f(b)-f(a)))
@@ -97,7 +97,7 @@ def newton_raphson(f,df,x):
 def newton_table(f,df,x):
     i = 0
     print("Table by Newton Raphson method")
-    print("i" + "   " + "f(x)")
+    print("i" + "   " + "x")
     while abs(f(x))>0.00001:
         if abs(df(x))>0.001:
             x = x - f(x)/df(x)
