@@ -6,7 +6,7 @@ The root from bisection method is
  The value of the function is
 3.86322793555216e-06
 Table by bisection method
-i   f(x)
+i   x
 1   2.2
 2   2.5
 3   2.65
@@ -30,7 +30,7 @@ i   f(x)
  The value of the function is
 -3.141021225616658e-06
 Table by Regula Falsi method
-i   f(x)
+i   x
 1   2.349719908390601
 2   2.6358587574448316
 3   2.623311128967633
@@ -44,7 +44,7 @@ i   f(x)
 -0.739080619812011
 -7.553678275873388e-06
 Table by bisection method
-i   f(x)
+i   x
 1   0.37500000000000044
 2   -0.6374999999999993
 3   -1.1437499999999992
@@ -70,7 +70,7 @@ i   f(x)
  The value of the function is
 -1.4239914009062105e-06
 Table by Regula Falsi method
-i   f(x)
+i   x
 1   0.4147119423007649
 2   -0.4829322029765364
 3   -0.703392947227013
