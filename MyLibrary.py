@@ -1,4 +1,5 @@
 import math
+import random
 #Function to multiply matrices
 def multiplyMatrices(a, b):
     arl = 0
@@ -419,6 +420,33 @@ def partial_pivot(a, n):
                     a[i], a[j] = a[j], a[i]
         
 
+def midpoint(f,a,b,n):
+    k = 0
+    h = (b-a)/n
+    for i in range(n):
+        k = k + h*f(i*h+a+0.5*h)
+    return k
+def trapezoid(f,a,b,n):
+    k = 0
+    h = (b-a)/n
+    for i in range(n):
+        k = k + 0.5*h*(f(i*h+a) + f(i*h + h + a))
+    return k
+def simpson(f,a,b,n):
+    k = 0
+    h = (b-a)/n
+    for i in range(n):
+        k = k + h*(f(i*h+a) + 4*f(i*h+a+0.5*h) + f(i*h + h + a))/6
+    return k
+def monteCarlo(f,a,b,n):
+    h = b-a
+    u = 0
+    k = 0
+    for j in range(n):
+        c = random.uniform(a,b)
+        k = k + f(c)
+    k = h*k/n
+    return k
 
 
 
