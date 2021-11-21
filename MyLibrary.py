@@ -448,7 +448,64 @@ def monteCarlo(f,a,b,n):
     k = h*k/n
     return k
 
-
+def euler(f,x1,x2,y,h):
+    if x2<x1:
+        h = -1*h
+    k = math.floor((x2-x1)/h)
+    for i in range(k):
+        y = y + h*f(x1,y)
+        x1 = x1 + h
+    return y
+def pred_corr(f,x1,x2,y,h):
+    if x2<x1:
+        h = -1*h
+    k = math.floor((x2-x1)/h)
+    for i in range(k):
+        c = y + h*f(x1,y)
+        y = y + 0.5*h*(f(x1,y) + f(x1+h,c))
+        x1 = x1 + h
+    return y
+def rk4(f,x1,x2,y,h):
+    if x2<x1:
+        h = -1*h
+    k = math.floor((x2-x1)/h)
+    for i in range(k):
+        k1 = h*f(x1,y)
+        k2 = h*f(x1+ 0.5*h,y + 0.5*k1)
+        k3 = h*f(x1+ 0.5*h,y + 0.5*k2)
+        k4 = h*f(x1+ h,y + k3)
+        y = y + (k1 + 2*k2 + 2*k3 + k4)/6
+        x1 = x1 + h
+    return y
+def rk4s(f,f1,x1,x2,y,z,h):
+    if x2<x1:
+        h = -1*h
+    k = math.floor((x2-x1)/h)
+    for i in range(k):
+        k1y = h*f(x1,z)
+        k2y = h*f(x1+ 0.5*h,z + 0.5*k1z)
+        k3y = h*f(x1+ 0.5*h,z + 0.5*k2z)
+        k4y = h*f(x1+ h,z + k3z)
+        k1z = h*f1(x1,y,z)
+        k2z = h*f1(x1+ 0.5*h,y + 0.5*k1y,z)
+        k3z = h*f1(x1+ 0.5*h,y + 0.5*k2y,z)
+        k4z = h*f1(x1+ h,y + k3y,z)
+        y = y + (k1y + 2*k2y + 2*k3y + k4y)/6
+        y1 = y + (k1z + 2*k2z + 2*k3z + k4z)/6
+        x1 = x1 + h
+    return y
+def rk4d(f,x1,x2,y,z,h):
+    if x2<x1:
+        h = -1*h
+    k = math.floor((x2-x1)/h)
+    for i in range(k):
+        k1 = h*f1(x1,y,z)
+        k2 = h*f1(x1+ 0.5*h,y + 0.5*k1,z)
+        k3 = h*f1(x1+ 0.5*h,y + 0.5*k2,z)
+        k4 = h*f1(x1+ h,y + k3,z)
+        y = y + (k1y + 2*k2y + 2*k3y + k4y)/6
+        x1 = x1 + h
+    return y
 
 
 
